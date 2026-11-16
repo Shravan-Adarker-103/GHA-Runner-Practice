@@ -1,0 +1,32 @@
+
+name: IBM Power Runner Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test Self Hosted Runner
+    runs-on: self-hosted
+
+    steps:
+      - name: Display Welcome Message
+        run: echo "Hello from IBM Power Runner!"
+
+      - name: Check Architecture
+        run: arch
+
+      - name: Check Operating System
+        run: cat /etc/os-release
+
+      - name: Check Kernel
+        run: uname -a
+
+      - name: Check Current User
+        run: whoami
+
+      - name: Verify Ubuntu Version
+        run: lsb_release -a
