@@ -29,4 +29,7 @@ jobs:
         run: whoami
 
       - name: Verify Ubuntu Version
-        run: lsb_release -a
+        run: |
+          . /etc/os-release
+          echo "Ubuntu Version: $PRETTY_NAME"
+          echo "Version ID: $VERSION_ID"
